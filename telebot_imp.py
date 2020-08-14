@@ -6,7 +6,7 @@ parser.read(file)
 token = parser.get('creds', 'token')
 print(type(token))
 
-#tocken= '1366726613:AAFxugWdQ46h-BHGjdAuDfW0RVpua4VgibM'
+
 bot = telebot.TeleBot(token, parse_mode=None)
 
 
