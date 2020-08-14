@@ -1,12 +1,20 @@
 from Auto_chat import Chatbot
-
+from firebase import firebase
+firebase = firebase.FirebaseApplication("https://just-49431.firebaseio.com/", None)
+res=firebase.get('/just-49431/data/First_table','')
+for a in res:
+	#print(a)
+	b= firebase.get('/just-49431/data/First_table','{}'.format(a))
+	print(b['Email'])
 Auto_chat=Chatbot("config.cfg")
 
 def make_reply(msg):
     reply = None
     if msg is not None:
-    	if msg=='Mobile':
-    		reply="Mobile Details"
+		if msg=='Mobile':
+			for a in res :
+				b= firebase.get('/just-49431/data/First_table','{}'.format(a))
+				reply=b['Email']
 
     	else:
         	reply = "Welcome Telegram Chatbot"
@@ -25,6 +33,4 @@ while True:
                 message = None
             from_ = item["message"]["from"]["id"]
             reply = make_reply(message)
-            Auto_chat.send_message(reply, from_)
-
-
+            Auto_chat.send_message(reply, fro
