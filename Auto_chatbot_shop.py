@@ -36,7 +36,7 @@ def start():
 		for item in updates:
 			update_id = item["update_id"]
 				
-id1=-448781380  # Which is the chat id for the.
+id1=-448781380  # Which is the chat id for the GROUP
 while True:
 	start()
 	reply = make_reply()
