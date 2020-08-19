@@ -30,9 +30,7 @@ def start():
 	update_id=None
 	updates = Auto_chat.get_updates(offset=update_id)
 	updates = updates["result"]
-	print("\n * \n")
 	if updates:
-		print("\n ** \n")
 		for item in updates:
 			update_id = item["update_id"]
 				
@@ -41,7 +39,6 @@ while True:
 	start()
 	reply = make_reply()
 	index=0
-	print("\n *** \n")
 
 	for a in res:
 		if reply[index] not in old: 
