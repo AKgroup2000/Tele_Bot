@@ -1,3 +1,4 @@
+import time
 from Auto_chat import Chatbot
 from firebase import firebase
 old =[]
@@ -45,3 +46,4 @@ while True:
 			Auto_chat.send_message(reply[index], id1)
 			upgrage_db(reply)
 		index+=1
+	time.sleep(600)
