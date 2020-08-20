@@ -1,49 +1,59 @@
-import time
 from Auto_chat import Chatbot
 from firebase import firebase
-old =[]
+import time
+old = []
+reply = []
 firebase = firebase.FirebaseApplication("https://just-49431.firebaseio.com/", None)
 res=firebase.get('just-49431/data/First_table','')
-print(res)
+
 
 Auto_chat=Chatbot("config.cfg")
-
-def upgrage_db(db):
-	old = db
-
 
 def make_reply():
 	reply = []
 	
 	for a in res:
+		print
 		print("a = ",a)
 		b= firebase.get('/just-49431/data/First_table','{}'.format(a))
 		print("\n",b,"\t",type(b['Email']),"\n")
 		tem=str(b['Email'])
 		print(type(tem))
-		reply.append(tem)
-	print(reply)
+		if tem not in old: 
+			Auto_chat.send_message(tem, id1)
+			print('Out =', tem)
+			old.append(tem)
+	print(old)
 
 	
 	return reply
 
-def start():
+'''def start():
+	res=firebase.get('just-49431/data/First_table','')
+	print(res)
 	update_id=None
 	updates = Auto_chat.get_updates(offset=update_id)
 	updates = updates["result"]
+	print("\n * \n")
 	if updates:
+		print("\n ** \n")
 		for item in updates:
 			update_id = item["update_id"]
-				
-id1=-448781380  # Which is the chat id for the GROUP
+				'''
+id1=-448781380
 while True:
-	start()
+	res=firebase.get('just-49431/data/First_table','')
+	print(res)
+	update_id=None
+	updates = Auto_chat.get_updates(offset=update_id)
+	updates = updates["result"]
+	print("\n * \n")
+	if updates:
+		print("\n ** \n")
+		for item in updates:
+			update_id = item["update_id"]
+					
 	reply = make_reply()
-	index=0
-
-	for a in res:
-		if reply[index] not in old: 
-			Auto_chat.send_message(reply[index], id1)
-			upgrage_db(reply)
-		index+=1
+	print("\n *** \n")
+	print("\n ODL Vla = ",old,"\n")
 	time.sleep(600)
