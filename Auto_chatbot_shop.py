@@ -40,7 +40,7 @@ def fetching(dic1):
 	keys=['userid','cleared_by_name','address','total_amount','created_at','status','map_geo_point','items']
 	#dic2 = {x:dic1[x] for x in keys}
 	#date = datetime.datetime.now()
-	delay=datetime.datetime.now() - datetime.timedelta(hours=1)
+	delay=datetime.datetime.now() - datetime.timedelta(hours=0.1)
 	if delay < utc_time:
 		dic2 = {x:dic1[x] for x in keys}
 		return dic2
@@ -61,7 +61,7 @@ while True:
 	reply = make_reply()
 	print("\n *** \n")
 	print("\n ODL Vla = ",old,"\n")
-	time.sleep(2)
+	time.sleep(350)
 
 
 
