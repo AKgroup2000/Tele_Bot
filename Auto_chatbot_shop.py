@@ -11,7 +11,7 @@ firebase_admin.initialize_app(cred)
 datab = firestore.client()
 
 import time
-old = []
+#old = []
 
 Auto_chat=Chatbot("config.cfg")
 
@@ -27,11 +27,11 @@ def make_reply():
 		print(src['address'])  #,"\t",src['Date'])
 		#tem=src['address']
 		#tem1=src['Name']
-		if tem not in old: 
-			Auto_chat.send_message(src, id1) #tem => src
-			#Auto_chat.send_message(tem1, id1)
-			print('Out =', tem)		#,'\t',tem1)
-			old.append(tem)
+		#if tem not in old: 
+		Auto_chat.send_message(src, id1) #tem => src
+		#Auto_chat.send_message(tem1, id1)
+		print('Out =', tem)		#,'\t',tem1)
+			#old.append(tem)
 
 	return reply
 
